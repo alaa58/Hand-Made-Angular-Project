@@ -38,6 +38,10 @@ finalTotalPrice: number = 0;
         this._ProductService.getProductById(Number(product_id)).subscribe({
           next:(res)=>{
             console.log(res);
+              console.log('Image URL:', this.detailsProductObj.image); 
+                     console.log('Assigned IProduct:', this.detailsProductObj);
+
+
             this.detailsProductObj= res.data;
 this.calculatePrices();
           },
