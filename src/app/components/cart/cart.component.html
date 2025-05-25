@@ -1,0 +1,143 @@
+<div class="container my-4">
+  <!-- Cart Header -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0" style="color: RGB(187, 119, 84);">
+      <i class="fas fa-shopping-cart me-2"></i>Shop Cart
+    </h2>
+    <div class="total-price bg-light p-3 rounded" style="border: 1px solid RGB(137, 150, 129);">
+      <span class="fw-bold me-2">Total Price:</span>
+      <span class="h4" style="color: RGB(187, 119, 84);">{{totalPrice}} <small>EGP</small></span>
+    </div>
+  </div>
+
+  <!-- Cart Items -->
+  <div class="cart-items">
+    <div *ngFor="let cart of cartItems "class="cart-item mb-3 p-3 rounded" 
+         style="background-color: white; border: 1px solid rgba(137, 150, 129, 0.3); transition: all 0.3s ease;">
+      
+      <div class="row align-items-center">
+        <!-- Product Image -->
+        <div class="col-md-2 col-4 text-center">
+          <img *ngIf="cart.image" [src]="cart.image" alt="{{ cart.productName }}" 
+               class="img-fluid rounded" style="max-height: 80px; object-fit: contain;">
+          <div *ngIf="!cart.image" class="text-muted py-3">
+            <i class="fas fa-image fa-2x" style="color: RGB(137, 150, 129);"></i>
+          </div>
+        </div>
+        
+        <!-- Product Details -->
+        <div class="col-md-6 col-5">
+          <h3 class="h6 mb-1" style="color: RGB(187, 119, 84);">
+            {{ cart.productName }}
+          </h3>
+          <div class="d-flex align-items-center mt-2">
+            <!-- Quantity Adjuster -->
+            <div class="quantity-adjuster d-flex align-items-center me-3">
+              <button class="btn btn-sm quantity-btn minus" 
+                      style="background-color: RGB(137, 150, 129); color: white;" (click)="decrementProduct(cart)">
+                <i class="fas fa-minus"></i>
+              </button>
+              <span class="mx-2" style="min-width: 20px; text-align: center;">
+               {{ cart.quantity }}
+
+              </span>
+              <button class="btn btn-sm quantity-btn plus" 
+                      style="background-color: RGB(137, 150, 129); color: white;" (click)="incrementProduct(cart)">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+            <span class="fw-bold" style="color: RGB(187, 119, 84);">
+              {{ cart.price }} <small>EGP</small>
+            </span>
+          </div>
+        </div>
+        
+        <!-- Remove Button -->
+        <div class="col-md-4 col-3 text-end">
+          <button class="btn btn-sm remove-btn" 
+                  style="background-color: RGB(187, 119, 84); color: white;" (click)="removeItem(cart.id)">
+            <i class="fas fa-times me-1"></i>Remove
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Checkout Button -->
+  <div class="d-flex justify-content-end mt-4">
+    <button class="btn checkout-btn py-2 px-4">
+      <i class="fas fa-credit-card me-2"></i>Proceed to Checkout
+    </button>
+  </div>
+</div>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+  .cart-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(187, 119, 84, 0.1);
+    border-color: RGB(187, 119, 84);
+  }
+  
+  .remove-btn {
+    transition: all 0.2s ease;
+    border: 1px solid RGB(187, 119, 84);
+  }
+  
+  .remove-btn:hover {
+    background-color: white !important;
+    color: RGB(187, 119, 84) !important;
+  }
+  
+  .checkout-btn {
+    background-color: RGB(137, 150, 129);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+  }
+  
+  .checkout-btn:hover {
+    background-color: RGB(187, 119, 84);
+    transform: scale(1.02);
+  }
+  
+  .total-price {
+    transition: all 0.3s ease;
+  }
+  
+  .total-price:hover {
+    box-shadow: 0 0 0 2px RGB(187, 119, 84);
+  }
+  
+  .quantity-btn {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50% !important;
+    transition: all 0.2s ease;
+    border: none;
+  }
+  
+  .quantity-btn:hover {
+    transform: scale(1.1);
+  }
+  
+  .quantity-btn.minus:hover {
+    background-color: #dc3545 !important;
+  }
+  
+  .quantity-btn.plus:hover {
+    background-color: RGB(187, 119, 84) !important;
+  }
+  
+  .quantity-adjuster {
+    border: 1px solid RGB(137, 150, 129, 0.3);
+    border-radius: 20px;
+    padding: 2px 5px;
+  }
+</style>

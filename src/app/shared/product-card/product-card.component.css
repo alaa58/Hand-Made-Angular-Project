@@ -1,0 +1,51 @@
+
+h5{
+     color: RGB(187, 119, 84) ;
+}
+.price{
+   
+    color: RGB(187, 119, 84);
+}
+.rate{
+  color:   RGB(137, 150, 129)
+}
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.card:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.price {
+ color: RGB(187, 119, 84) ; /* Bootstrap success green */
+  font-size: 1.1rem;
+}
+.card-img-top {
+  transition: transform 0.3s ease;
+}
+.card-img-top:hover {
+  transform: scale(1.1);
+}
+.btn-outline-primary {
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+.btn-addToCart:hover {
+  background-color:  #f9f0df;
+  /* color: white; */
+}
+.tooltip-inner {
+  background-color:  #908656;
+  color: white;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  border-radius: 4px;
+}
+.btn-addToCart {
+  color: RGB(187, 119, 84) ;
+  border: 1px solid RGB(187, 119, 84) ;
+  font-size: 20px;
+  font-weight: bolder;
+}

@@ -1,0 +1,44 @@
+.carousel {
+  width: 100%; /* Takes full width of its container */
+  margin: auto;
+  background-color: var(--cream-white);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-inner {
+  width: 100%;
+}
+
+.custom-carousel-img {
+  width: 100%; /* Takes full width of carousel */
+  height: auto; /* Height adjusts automatically to maintain aspect ratio */
+  max-height: 500px; /* Optional: Limits how tall the image can grow */
+  object-fit: cover; /* Ensures entire image is visible without distortion */
+  border-radius: 10px;
+  border: 5px solid var(--soft-beige);
+  background-color: var(--cream-white); /* Fills any empty space around the image */
+}
+
+/* Keep your existing indicator and control styles */
+.carousel-indicators [data-bs-target] {
+  background-color: var(--muted-olive);
+}
+
+.carousel-indicators .active {
+  background-color: var(--sage-green);
+}
+.carousel-control-prev:focus, 
+.carousel-control-next:focus,
+.carousel-control-prev:active, 
+.carousel-control-next:active {
+ 
+  outline: none;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+.carousel-control-prev:hover, 
+.carousel-control-next:hover {
+    
+  background-color: transparent;
+}

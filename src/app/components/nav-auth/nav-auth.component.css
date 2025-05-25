@@ -1,0 +1,69 @@
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: linear-gradient(50deg, var(--olive), var(--soft-beige));
+  height: 70px;
+  padding: 0 30px;
+  box-shadow: 0 6px 12px rgba(var(--dark-brown-rgb), 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Container to align logo and buttons */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Logo */
+.logo-container img {
+  height: 100%;
+  width: 110px;
+  max-height: 70px;
+}
+
+/* Auth Buttons */
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.auth-buttons .btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 15px;
+  border: none;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  
+}
+.register-btn {
+  background-color: var(--olive);
+  border: 2px solid var(--cream-white);  /* لون الحدود أبيض هنا */
+  color: var(--cream-white);
+  /* شيلت السطر اللي فيه border: 2px solid var(--olive); */
+}
+
+.register-btn:hover {
+  background-color: var(--cream-white);
+  color: var(--olive);
+}
+
+.login-btn {
+  background-color: var(--cream-white);
+  color: var(--olive);
+  border: 2px solid var(--olive);
+}
+
+.login-btn:hover {
+  background-color: var(--olive);
+  color: var(--cream-white);
+}

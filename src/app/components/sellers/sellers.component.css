@@ -1,0 +1,75 @@
+.vendors-section {
+  background-color: rgb(250, 244, 232); /* Cream White */
+  padding: 40px 20px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.title {
+  color: rgb(84, 59, 46); /* Dark Brown */
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.vendor-carousel {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 30px;
+  justify-content: center;
+  padding-bottom: 20px;
+  scrollbar-width: none; /* Firefox */
+}
+
+.vendor-carousel::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.vendor-card {
+  flex: 0 0 auto;
+  width: 180px;
+  background-color: rgb(241, 229, 215); /* Soft Beige */
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.vendor-card:hover {
+  transform: translateY(-5px);
+}
+
+.vendor-badge {
+  width: 100%;
+  max-width: 120px;
+  height: auto;
+  margin-bottom: 12px;
+}
+
+.vendor-name {
+  color: rgb(187, 119, 84); /* Warm Clay */
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* Optional carousel arrows */
+.carousel-controls {
+  margin-top: 10px;
+}
+
+.arrow {
+  background: transparent;
+  border: 2px solid rgb(158, 152, 115); /* Muted Olive */
+  color: rgb(158, 152, 115);
+  padding: 8px 12px;
+  font-size: 18px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.arrow:hover {
+  background-color: rgb(137, 150, 129); /* Sage Green */
+  color: white;
+}

@@ -1,0 +1,70 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: linear-gradient(50deg, var(--olive), var(--soft-beige));
+  height: 70px;
+  padding: 0 30px;
+  box-shadow: 0 6px 12px rgba(var(--dark-brown-rgb), 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo-container img {
+  height: 100%;
+  width: 110px;
+  max-height: 70px;
+}
+
+/* Centered links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  gap: 10px;
+  flex: 1;
+}
+
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--cream-white);
+  font-weight: 600;
+  padding: 12px 16px;
+  border-radius: 8px;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background-color: var(--soft-beige);
+  color: var(--warm-clay);
+}
+
+/* Signout Button */
+.signout-container {
+  display: flex;
+  align-items: center;
+}
+
+.signout-btn {
+  background-color: var(--olive);
+  color: var(--soft-beige);
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.signout-btn:hover {
+  background-color: var(--soft-beige); 
+  color: var(--olive) ;
+}

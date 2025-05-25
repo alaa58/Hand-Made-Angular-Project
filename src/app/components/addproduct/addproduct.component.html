@@ -1,0 +1,58 @@
+<div class="form-screen">
+  <div class="form-container">
+    <form [formGroup]="productForm" (ngSubmit)="submitForm()">
+      <h2 class="form-title">Add New Product</h2>
+
+      <div class="form-group">
+        <label for="name" class="required">Product Name</label>
+        <input id="name" formControlName="name" placeholder="Enter product name" class="form-input">
+      </div>
+
+      <div class="form-group">
+        <label for="description" class="required">Description</label>
+        <textarea id="description" formControlName="description" placeholder="Write product description" class="form-textarea"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="price" class="required">Price</label>
+        <input id="price" formControlName="price" type="number" placeholder="e.g. 100" class="form-input">
+      </div>
+
+      <div class="form-group">
+        <label for="stock" class="required">Stock</label>
+        <input id="stock" formControlName="stock" type="number" placeholder="0.00" class="form-input">
+      </div>
+
+      <div class="form-group">
+        <label for="categoryId" class="required">Category</label>
+        <select id="categoryId" formControlName="categoryId"  class="form-select">
+          @for (cat of categories; track cat.categoryId) {
+            <option [value]="cat.categoryId">{{ cat.name }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="productImage" class="required">Product Image</label>
+        <input id="productImage" type="file" (change)="onFileChange($event)" class="form-file">
+      </div>
+
+      <div class="form-group form-checkbox">
+        <label>
+          <input type="checkbox" formControlName="hasSale" class="form-checkbox-input"> On Sale?
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label for="salePercentage">Sale Percentage</label>
+        <input id="salePercentage" type="number" formControlName="salePercentage" placeholder="e.g. 20" class="form-input">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Add Product</button>
+
+      <div class="form-footer">
+        All fields marked with <span class="required">*</span> are required.
+      </div>
+    </form>
+  </div>
+</div>

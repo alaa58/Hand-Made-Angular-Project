@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --soft-beige: rgba(248, 239, 222, 1);
+  --warm-clay: rgba(184, 112, 62, 1);
+  --muted-olive:rgba( 158, 152, 115);
+  --olive: rgba(106, 89, 46, 1);
+  --dark-brown: rgba(113, 76, 47, 1);
+  --sage-green: rgba(146, 135, 90, 1);
+  --cream-white: rgba(255, 250, 240, 1);
+}
+
+body {
+  font-family: sans-serif; /* Choose a suitable default font */
+  background-color: var(--cream-white);
+  color: var(--dark-brown);
+  line-height: 1.6; /* Improve readability */
+    padding-top: 90px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--warm-clay);
+  line-height: 1.2;
+}
+
+a {
+  color: var(--muted-olive);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--sage-green);
+  text-decoration: underline;
+}
+
+button {
+  background-color: var(--muted-olive);
+  color: var(--cream-white);
+  border: none;
+  padding: 0.8em 1.5em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--sage-green);
+}
+
+/* You can add more global styles for other elements as needed, */
+/* such as form elements, navigation, etc. */

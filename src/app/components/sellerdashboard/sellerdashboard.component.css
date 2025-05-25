@@ -1,0 +1,18 @@
+th{
+    background-color:   rgba( 158, 152, 115);
+}
+h2{
+ color:rgba(184, 112, 62, 1)
+}
+button{
+    background-color: rgba(184, 112, 62, 1);
+    color: white;
+}
+button:hover{
+    background-color: rgba( 158, 152, 115);
+    color: white;
+}
+.bi{
+    color: rgba(113, 76, 47, 1);
+
+}

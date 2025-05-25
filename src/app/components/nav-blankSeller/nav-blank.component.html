@@ -1,0 +1,323 @@
+<!-- <nav class="navbar">
+  <div class="logo-container">
+    <a routerLink="home"> <img src="assets/images/logo.png" alt="Logo"></a>
+   
+  </div>
+
+  <ul class="nav-links">
+    <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+    <li><a routerLink="/categories" routerLinkActive="active">Categories</a></li>
+    <li><a routerLink="/cart" routerLinkActive="active">Cart</a></li>
+    <li><a routerLink="/product" routerLinkActive="active">Product</a></li>
+    <div class="cart-container position-relative">
+  <button (click)="toggleCartSidebar()" class="btn btn-outline-secondary position-relative" [routerLink]="['/cart']">
+    <i class="fas fa-shopping-cart fa-lg"></i>
+    <span *ngIf="cartCount > 0" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+      {{ cartCount }}
+      <span class="visually-hidden">items in cart</span>
+    </span>
+  </button>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  </ul>
+
+</nav>
+  <div class="signout-container">
+    <button class="signout-btn">Sign Out</button>
+  </div> -->
+  <nav class="navbar navbar-expand-lg" style="background-color: RGB(137, 150, 129);">
+  <div class="container-fluid">
+    <div class="logo-container">
+      <a routerLink="home" class="navbar-brand">
+        <img src="assets/images/logo.png" alt="Logo" height="40">
+      </a>
+    </div>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: RGB(187, 119, 84);">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home" routerLinkActive="active" 
+             style="color: white; transition: all 0.3s ease;">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/categories" routerLinkActive="active" 
+             style="color: white; transition: all 0.3s ease;">Categories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/product" routerLinkActive="active" 
+             style="color: white; transition: all 0.3s ease;">Product</a>
+        </li><nav class="navbar navbar-expand-lg" style="background-color: RGB(137, 150, 129);">
+  <div class="container-fluid">
+    <div class="logo-container">
+      <a routerLink="home" class="navbar-brand">
+        <img src="assets/images/logo.png" alt="Logo" height="40">
+      </a>
+    </div>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: RGB(187, 119, 84);">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+       
+       
+      </ul>
+
+      <div class="d-flex align-items-center gap-3">
+        <div class="cart-container position-relative">
+          <!-- <button  class="btn position-relative p-2" 
+                  [routerLink]="['/cart']" 
+                  style="background-color: RGB(187, 119, 84); color: white; border: none;">
+            <i class="fas fa-shopping-cart fa-lg"></i>
+           <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill" 
+      style="background-color: rgb(201, 16, 16); color: RGB(187, 119, 84); border: 1px solid RGB(187, 119, 84);">
+  {{ cartCount }}
+  <span class="visually-hidden">items in cart</span>
+</span>
+
+          </button> -->
+          <!-- <button class="btn position-relative p-2" 
+        [routerLink]="['/cart']" 
+        style="background-color: RGB(187, 119, 84); color: white; border: none;">
+  
+  <i class="fas fa-shopping-cart fa-lg"></i>
+
+ 
+</button>
+ <span class="position-absolute badge rounded-pill"
+        style="top: -13px; right:-13px;
+               background-color: rgb(201, 16, 16);
+               color: white;
+               border: 1px solid white;
+               z-index: 10;">
+    {{ cartCount }}
+    <span class="visually-hidden">items in cart</span>
+  </span> -->
+
+
+        </div>
+
+        <div class="signout-container">
+          <button class="btn" (click)="signOut()" style="background-color: transparent; color: rgb(90, 88, 88); border: 1px solid RGB(187, 119, 84);">
+            Sign Out
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+  /* Navbar styling */
+  .navbar {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 0.5rem 1rem;
+  }
+  
+  /* Nav links hover effect */
+  .nav-link {
+    position: relative;
+    margin: 0 10px;
+    padding: 8px 12px !important;
+    border-radius: 4px;
+  }
+  
+  .nav-link:hover {
+    color: RGB(187, 119, 84) !important;
+    background-color: rgba(255,255,255,0.2) !important;
+  }
+  
+  .nav-link.active {
+    font-weight: bold;
+    color: RGB(187, 119, 84) !important;
+    background-color: rgba(255,255,255,0.3) !important;
+  }
+  
+  /* Cart button styling */
+  .cart-container .btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cart-container .btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 3px rgba(187, 119, 84, 0.3);
+  }
+  
+  .cart-container .btn::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    transform: scale(0);
+    transition: transform 0.3s ease;
+  }
+  
+  .cart-container .btn:hover::after {
+    transform: scale(2);
+  }
+  
+  /* Sign out button styling */
+  .signout-container .btn {
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    padding: 5px 15px;
+  }
+  
+  .signout-container .btn:hover {
+    background-color: RGB(187, 119, 84) !important;
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  /* Badge styling */
+  .badge {
+    font-size: 0.7em;
+    padding: 4px 6px;
+    min-width: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .cart-container:hover .badge {
+    transform: scale(1.1);
+  }
+</style>
+      </ul>
+
+      <div class="d-flex align-items-center gap-3">
+        <div class="cart-container position-relative">
+          <button  class="btn position-relative p-2" 
+                  [routerLink]="['/cart']" 
+                  style="background-color: RGB(187, 119, 84); color: white; border: none;">
+            <i class="fas fa-shopping-cart fa-lg"></i>
+            <span *ngIf="cartCount > 0" class="position-absolute top-0 start-100 translate-middle badge rounded-pill" 
+                  style="background-color: white; color: RGB(187, 119, 84); border: 1px solid RGB(187, 119, 84);">
+              {{ cartCount }}
+              <span class="visually-hidden">items in cart</span>
+            </span>
+          </button>
+        </div>
+
+        <div class="signout-container">
+          <button class="btn" style="background-color: transparent; color: rgb(87, 86, 86); border: 1px solid RGB(187, 119, 84);">
+            Sign Out
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+  /* Navbar styling */
+  .navbar {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 0.5rem 1rem;
+  }
+  
+  /* Nav links hover effect */
+  .nav-link {
+    position: relative;
+    margin: 0 10px;
+    padding: 8px 12px !important;
+    border-radius: 4px;
+  }
+  
+  .nav-link:hover {
+    color: RGB(187, 119, 84) !important;
+    background-color: rgba(255,255,255,0.2) !important;
+  }
+  
+  .nav-link.active {
+    font-weight: bold;
+    color: RGB(187, 119, 84) !important;
+    background-color: rgba(255,255,255,0.3) !important;
+  }
+  
+  /* Cart button styling */
+  .cart-container .btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cart-container .btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 3px rgba(187, 119, 84, 0.3);
+  }
+  
+  .cart-container .btn::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    transform: scale(0);
+    transition: transform 0.3s ease;
+  }
+  
+  .cart-container .btn:hover::after {
+    transform: scale(2);
+  }
+  
+  /* Sign out button styling */
+  .signout-container .btn {
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    padding: 5px 15px;
+  }
+  
+  .signout-container .btn:hover {
+    background-color: RGB(187, 119, 84) !important;
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  /* Badge styling */
+  .badge {
+    font-size: 0.7em;
+    padding: 4px 6px;
+    min-width: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .cart-container:hover .badge {
+    transform: scale(1.1);
+  }
+</style>

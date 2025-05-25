@@ -1,0 +1,14 @@
+<section class="vendors-section">
+  <h2 class="title">Our Vendors</h2>
+
+  <div class="vendor-carousel" >
+    @for (seller of Sellers; track seller.sellerId) {
+      <div class="vendor-card" [routerLink]="['/seller', seller.sellerId]">
+        <img src="../../../assets/images/logo-6.png" alt="Vendor Badge" class="vendor-badge" />
+        <p class="vendor-name">{{ seller.storeName }}</p>
+      </div>
+    } 
+  </div>
+
+  
+</section>

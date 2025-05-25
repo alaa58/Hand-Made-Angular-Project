@@ -1,0 +1,108 @@
+@if(detailsProductObj){
+<div class="container mt-5">
+  <div class="card shadow overflow-hidden" style="border-radius: 16px; border: none;">
+    <div class="row g-0">
+      <!-- Product Image Column -->
+      <div class="col-md-5 p-4" style="background-color: #f8f5f2;">
+        <div class="position-relative h-100">
+          <img [src]="detailsProductObj.image" class="img-fluid rounded-3 w-100" alt="Product Image" 
+               style="max-height: 400px; object-fit: contain;"/>
+          <div *ngIf="detailsProductObj.salePercentage > 0" 
+               class="position-absolute top-0 end-0 mt-3 me-3 py-2 px-3 rounded-pill" 
+               style="background-color: rgba(187, 119, 84, 0.9); color: white; font-weight: 600;">
+            {{ detailsProductObj.salePercentage }}% OFF
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Details Column -->
+      <div class="col-md-7">
+        <div class="card-body p-4 p-lg-5">
+          <!-- Header with title and stock -->
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <h1 class="card-title mb-0" style="font-weight: 700; color: RGB(137, 150, 129);">
+              {{ detailsProductObj.name }}
+            </h1>
+            <span class="badge rounded-pill py-2 px-3" 
+                  [ngStyle]="{
+                    'backgroundColor': detailsProductObj.stock > 10 ? 'rgba(137, 150, 129, 0.2)' : 
+                                     (detailsProductObj.stock > 0 ? 'rgba(255, 193, 7, 0.2)' : 'rgba(220, 53, 69, 0.2)'),
+                    'color': detailsProductObj.stock > 10 ? 'RGB(137, 150, 129)' : 
+                            (detailsProductObj.stock > 0 ? '#d39e00' : '#dc3545')
+                  }">
+              {{ detailsProductObj.stock > 0 ? (detailsProductObj.stock + ' available') : 'Out of stock' }}
+            </span>
+          </div>
+
+          <!-- Description -->
+          <p class="card-text mb-4" style="color: #5a5a5a; font-size: 1.05rem; line-height: 1.6;">
+            {{ detailsProductObj.description }}
+          </p>
+
+          <!-- Price Section -->
+          <div class="price-section mb-4">
+            <div *ngIf="detailsProductObj.salePercentage > 0" class="d-flex align-items-baseline">
+              <span class="text-muted me-2" style="text-decoration: line-through; font-size: 1.2rem;">
+                {{ totalPrice | currency }}
+              </span>
+              <span class="fw-bold ms-2" style="font-size: 1.8rem; color: RGB(187, 119, 84);">
+                {{ detailsProductObj.priceAfterSale | currency }}
+              </span>
+            </div>
+            <div *ngIf="detailsProductObj.salePercentage === 0">
+              <span class="fw-bold" style="font-size: 1.8rem; color: RGB(137, 150, 129);">
+                {{ detailsProductObj.price | currency }}
+              </span>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="d-flex gap-3 mb-4">
+            <div class="quantity-selector d-flex align-items-center border rounded-pill">
+              <button class="btn px-3 py-1" style="color: RGB(187, 119, 84);" (click)="decrementProduct()">−</button>
+              <span class="px-3" >{{quantity}}</span>
+              <button class="btn px-3 py-1" style="color: RGB(187, 119, 84);" (click)="incrementproduct()">+</button>
+            </div>
+            <button class="btn flex-grow-1 py-2 rounded-pill text-white" 
+                    style="background-color: RGB(187, 119, 84);" (click)="AddToCart(quantity)">
+              <i class="bi bi-cart-plus me-2"></i>Add to Cart
+            </button>
+          </div>
+
+          <!-- Additional Info -->
+          <div class="additional-info mt-4 pt-3" style="border-top: 1px solid #eee;">
+            <div class="row">
+              <div class="col-6 mb-3">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-truck me-2" style="color: RGB(137, 150, 129);"></i>
+                  <span style="color: #5a5a5a;">Free shipping</span>
+                </div>
+              </div>
+              <div class="col-6 mb-3">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-arrow-repeat me-2" style="color: RGB(137, 150, 129);"></i>
+                  <span style="color: #5a5a5a;">Easy returns</span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-shield-check me-2" style="color: RGB(137, 150, 129);"></i>
+                  <span style="color: #5a5a5a;">2-year warranty</span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-chat-square-text me-2" style="color: RGB(137, 150, 129);"></i>
+                  <span style="color: #5a5a5a;">Customer support</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+}
+
+<app-reviews></app-reviews>

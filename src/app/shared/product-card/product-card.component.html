@@ -1,0 +1,52 @@
+ <div class="card h-100 border-0 shadow position-relative">
+        <div class="position-relative"  [routerLink]="['/product-details', product.productId]">
+          <!-- //product-details -->
+          <img 
+            [src]="product.image || 'assets/no-image.png'" 
+            class="card-img-top p-3"
+            [attr.alt]="product.name"
+            style="height: 200px; object-fit: contain;"
+            placement="top"
+           
+          />
+
+          <!-- Wishlist Icon -->
+          <button 
+            class="btn btn-light position-absolute top-0 end-0 m-2 rounded-circle shadow-sm"
+            placement="left"
+            ngbTooltip="Add to Wishlist">
+            <i class="bi bi-heart fs-5 text-danger"></i>
+          </button>
+        </div>
+
+        <div class="card-body">
+          <h5 class="card-title d-flex justify-content-between align-items-center">
+            <span class="text-truncate" [attr.title]="product.name">{{ product.name }}</span>
+          </h5>
+
+          <!-- Pricing -->
+          <div *ngIf="product.salePercentage > 0; else noSale" class="d-flex justify-content-between">
+            <p class="fw-bold price mb-0">{{ product.priceAfterSale | currency }}</p>
+            <small class="text-muted text-decoration-line-through ">{{ product.price | currency }}</small>
+          </div>
+          <ng-template #noSale>
+            <p class="fw-bold price mb-0">{{ product.price | currency }}</p>
+          </ng-template>
+
+          <!-- Add to Cart -->
+          <div class="mt-3 d-grid">
+            <button 
+              class="btn btn-addToCart btn-sm"
+              (click)="addToCart(product.productId,product.stock)"
+              ngbTooltip="Add to cart">
+              <i class="bi bi-cart-plus me-1"></i> Add to Cart
+            </button>
+          </div>
+
+          <!-- Modal Trigger -->
+          <!-- <div class="mt-2 text-center">
+            <a href="#" class="small text-decoration-underline" (click)="openDetailsModal(product)">View Details</a>
+          </div> -->
+        </div>
+      </div>
+

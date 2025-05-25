@@ -1,0 +1,90 @@
+/* Color Palette as CSS variables */
+:root {
+  --soft-beige: rgb(241, 229, 215);
+  --warm-clay: rgb(187, 119, 84);
+  --muted-olive: rgb(158, 152, 115);
+  --dark-brown: rgb(84, 59, 46);
+  --sage-green: rgb(137, 150, 129);
+  --cream-white: rgb(250, 244, 232);
+}
+
+/* Apply background color to the main container */
+.bg-soft-beige {
+  background-color: var(--soft-beige) !important;
+}
+
+.text-dark-brown {
+  color: var(--dark-brown) !important;
+}
+
+.text-muted-olive {
+  color: var(--muted-olive) !important;
+}
+
+.text-warm-clay {
+  color: var(--warm-clay) !important;
+}
+
+.bg-cream-white {
+  background-color: var(--cream-white) !important;
+}
+
+/* Custom button style for Sage Green */
+.btn-sage-green {
+  background-color: var(--sage-green);
+  color: var(--cream-white);
+  border-color: var(--sage-green);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-sage-green:hover,
+.btn-sage-green:focus {
+  background-color: var(--dark-brown); /* Darker on hover/focus */
+  border-color: var(--dark-brown);
+  color: var(--cream-white);
+  box-shadow: 0 0 0 0.25rem rgba(137, 150, 129, 0.5); /* Lighter shadow for focus */
+}
+
+/* Product Card Styling */
+.product-card .card-img-top {
+  height: 250px; /* Fixed height for consistent image size */
+  object-fit: cover; /* Ensures images cover the area without distortion */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Subtle separator */
+}
+
+.product-card .no-image-placeholder {
+  height: 250px;
+  background-color: var(--soft-beige);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  font-style: italic;
+}
+
+.product-card .card-body {
+  padding: 1.5rem;
+}
+
+.product-card .card-title {
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem; /* Slightly larger title */
+}
+
+.product-card .card-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+/* Ensure consistent card height */
+.card.h-100 {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body.d-flex.flex-column {
+  flex-grow: 1; /* Allows body to expand */
+}
+
+/* Adjust spinner color */
+.spinner-border {
+  color: var(--sage-green) !important;
+}

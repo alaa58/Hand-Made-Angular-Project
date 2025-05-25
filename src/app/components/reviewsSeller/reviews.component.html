@@ -1,0 +1,39 @@
+<div class="reviews-container">
+  <h2 class="reviews-header">Customer Reviews</h2>
+
+  @if (reviews.length > 0) {
+    <ul class="reviews-list">
+      @for (review of reviews; track review.customerId) {
+        <li class="review-item">
+          <div class="review-header">
+            <div class="star-rating">
+              @for (star of getStarArray(review.score); let i = $index; track $index) {
+                <span class="star" [class.filled]="star">
+                  @if (star) {
+                    &#9733;
+                  } @else {
+                    &#9734;
+                  }
+                </span>
+              }
+            </div>
+            <span class="review-score">({{review.score}}/5)</span>
+          </div>
+          <p class="review-comment">
+            {{ review.comment }}
+          </p>
+          <!-- <p class="review-author">
+            By: {{ review.customerId.substring(0, 8) }}...
+          </p> -->
+        </li>
+        @if (!$last) {
+          <hr class="review-separator" />
+        }
+      }
+    </ul>
+  } @else {
+    <p class="no-reviews-message">No reviews available for this product yet.</p>
+  }
+
+ 
+</div>

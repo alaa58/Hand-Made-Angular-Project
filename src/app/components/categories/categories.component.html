@@ -1,0 +1,359 @@
+<!-- <div class="container py-5" style="background-color: #f5f0e8;">
+  <h2 class="text-center mb-4" style="color: #5a4a42;">Select a Category</h2>
+
+   <div class="mb-4 d-flex justify-content-center">
+    <select class="form-select w-50" style="border-color: RGB(137, 150, 129); color: #5a4a42;" 
+            [(ngModel)]="selectedCategoryId" (change)="onCategoryChange()">
+      <option value="0" disabled>Select a category</option>
+      <option *ngFor="let category of categories" [value]="category.categoryId">
+        {{ category.name }}
+      </option>
+    </select>
+  </div> 
+  <div class="mb-4 d-flex justify-content-center">
+
+  <select class="form-select w-50"
+
+          style="border-color: RGB(137, 150, 129); color: #5a4a42;"
+
+          [(ngModel)]="selectedCategoryId"
+
+          (change)="onCategoryChange()">
+
+    <option value="0" disabled>Select a category</option>
+
+
+
+    @for (category of categories.data; track category.categoryId) {
+
+      <option [value]="category.categoryId">
+
+        {{ category.name }}
+
+      </option>
+
+    }
+
+
+
+  </select>
+=======
+  <div class="mb-4 d-flex justify-content-center">
+    <select class="form-select w-50"
+            style="border-color: RGB(137, 150, 129); color: #5a4a42;"
+            [(ngModel)]="selectedCategoryId"
+            (change)="onCategoryChange()">
+      <option value="0" disabled [selected]="selectedCategoryId === 0">Select a category</option>
+      <option *ngFor="let category of categories.data" [value]="category.categoryId">
+        {{ category.name }}
+      </option>
+    </select>
+  </div>
+>>>>>>> ce58a704f1a7d086bf417582c983b78efa988a80
+
+  <div *ngIf="selectedCategoryProducts.length > 0">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <div *ngFor="let product of selectedCategoryProducts" class="col">
+        <div class="card h-100 border-0 shadow-sm" style="background-color: #fffcf7; transition: all 0.3s ease;">
+          <div class="card-header border-0 bg-transparent position-relative">
+            <button class="btn btn-link position-absolute top-0 end-0 p-2" style="color: RGB(187, 119, 84);">
+              <i class="far fa-heart fa-lg"></i>
+            </button>
+          </div>
+          
+
+          <ng-container *ngIf="product.image; else noImage">
+            <img loading="lazy" [src]="'https://handmade.runasp.net' + product.image"
+                 class="card-img-top object-fit-cover"
+                 style="height: 200px;"
+                 [alt]="product.name">
+          </ng-container>
+          <ng-template #noImage>
+            <div class="d-flex align-items-center justify-content-center"
+                 style="height: 200px; background-color: #f8f8f8;">
+              <i class="fas fa-image fa-3x" style="color: RGB(137, 150, 129);"></i>
+            </div>
+          </ng-template>
+
+          <div class="card-body d-flex flex-column">
+            <h3 class="card-title mb-2" style="color: RGB(187, 119, 84);">
+              <i class="fas fa-tag me-2" style="color: RGB(137, 150, 129);"></i>
+              {{ product.name }}
+            </h3>
+            
+
+            <div class="mb-2" style="color: RGB(137, 150, 129);">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <i class="far fa-star"></i>
+              <span class="ms-1">(24)</span>
+            </div>
+
+
+            <p class="card-text mb-3 flex-grow-1" style="color: RGB(137, 150, 129);">
+              <i class="fas fa-info-circle me-2"></i>
+              {{ product.description }}
+            </p>
+
+            <div class="d-flex justify-content-between align-items-center mt-auto">
+              <span class="fw-bold fs-4" style="color: RGB(187, 119, 84);">
+                <i class="fas fa-coins me-2"></i>
+                {{ product.priceAfterSale }} EGP
+              </span>
+              <div class="btn-group" role="group">
+<button class="btn btn-sm me-1 d-flex align-items-center justify-content-center" 
+        style="background-color: RGB(187, 119, 84); color: white;" 
+        title="View"
+         [routerLink]="['/product-details', product.productId]">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="me-1" viewBox="0 0 16 16">
+    <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zm-8 3a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+    <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"/>
+  </svg>
+  <i class="fas fa-eye"></i>
+</button>
+
+<button class="btn btn-sm d-flex align-items-center justify-content-center" 
+        style="background-color: RGB(137, 150, 129); color: white;" 
+        title="Add to Cart" (click)="AddToCart( product.productId,product.stock)">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="me-1" viewBox="0 0 16 16">
+    <path d="M0 1a1 1 0 0 1 1-1h1.17a1 1 0 0 1 .984.858L3.89 3H14a1 1 0 0 1 .949 1.316l-1.5 4A1 1 0 0 1 12.5 9H4.118l-.405 2H13.5a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.491-.408L.01 1.607A1 1 0 0 1 0 1zm3.102 3l.84 4.2a.5.5 0 0 1-.49.6H2.1L3.102 4z"/>
+    <circle cx="6" cy="13" r="1"/>
+    <circle cx="11" cy="13" r="1"/>
+  </svg>
+  <i class="fas fa-shopping-cart"></i>
+</button>
+=======
+                <button class="btn btn-sm me-1 d-flex align-items-center justify-content-center"
+                        style="background-color: RGB(187, 119, 84); color: white;"
+                        title="View"
+                        [routerLink]="['/product-details', product.productId]">
+                  <i class="fas fa-eye me-1"></i> View
+                </button>
+
+                <button class="btn btn-sm d-flex align-items-center justify-content-center"
+                        style="background-color: RGB(137, 150, 129); color: white;"
+                        title="Add to Cart"
+                        (click)="AddToCart(product.productId, product.stock)">
+                  <i class="fas fa-shopping-cart me-1"></i> Add
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="selectedCategoryProducts.length === 0 && selectedCategoryId != 0" 
+       class="mt-5 text-center py-5" @fadeInOut>
+    <div class="py-4 px-3 rounded" ></div>
+  <div *ngIf="selectedCategoryProducts.length === 0 && selectedCategoryId != 0"
+       class="mt-5 text-center py-5">
+    <div class="py-4 px-3 rounded"
+         style="background-color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto;">
+      <i class="fas fa-box-open fa-3x mb-3" style="color: RGB(137, 150, 129);"></i>
+      <p class="fs-5 mb-0" style="color: RGB(137, 150, 129); font-family: 'Montserrat', sans-serif;">
+        No products available for this category yet. Check back soon!
+      </p>
+    </div>
+  </div>
+</div>
+ -->
+
+
+ <div class="container py-5" style="background-color: #f5f0e8;">
+
+  <h2 class="text-center mb-4" style="color: #5a4a42;">Select a Category</h2>
+
+
+
+  <div class="mb-4 d-flex justify-content-center">
+
+    <select class="form-select w-50"
+
+            style="border-color: RGB(137, 150, 129); color: #5a4a42;"
+
+            [(ngModel)]="selectedCategoryId"
+
+            (change)="onCategoryChange()">
+
+      <option value="0" disabled [selected]="selectedCategoryId === 0">Select a category</option>
+
+      <option *ngFor="let category of categories.data" [value]="category.categoryId">
+
+        {{ category.name }}
+
+      </option>
+
+    </select>
+
+  </div>
+
+
+
+  <div *ngIf="selectedCategoryProducts.length > 0">
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+      <div *ngFor="let product of selectedCategoryProducts" class="col">
+
+        <div class="card h-100 border-0 shadow-sm" style="background-color: #fffcf7; transition: all 0.3s ease;">
+
+          <div class="card-header border-0 bg-transparent position-relative">
+
+            <button class="btn btn-link position-absolute top-0 end-0 p-2" style="color: RGB(187, 119, 84);">
+
+              <i class="far fa-heart fa-lg"></i>
+
+            </button>
+
+          </div>
+
+
+
+          <ng-container *ngIf="product.image; else noImage">
+
+            <img loading="lazy" [src]="'https://handmade.runasp.net' + product.image"
+
+                 class="card-img-top object-fit-cover"
+
+                 style="height: 200px;"
+
+                 [alt]="product.name">
+
+          </ng-container>
+
+          <ng-template #noImage>
+
+            <div class="d-flex align-items-center justify-content-center"
+
+                 style="height: 200px; background-color: #f8f8f8;">
+
+              <i class="fas fa-image fa-3x" style="color: RGB(137, 150, 129);"></i>
+
+            </div>
+
+          </ng-template>
+
+
+
+          <div class="card-body d-flex flex-column">
+
+            <h3 class="card-title mb-2" style="color: RGB(187, 119, 84);">
+
+              <i class="fas fa-tag me-2" style="color: RGB(137, 150, 129);"></i>
+
+              {{ product.name }}
+
+            </h3>
+
+
+
+            <div class="mb-2" style="color: RGB(137, 150, 129);">
+
+              <i class="fas fa-star"></i>
+
+              <i class="fas fa-star"></i>
+
+              <i class="fas fa-star"></i>
+
+              <i class="fas fa-star-half-alt"></i>
+
+              <i class="far fa-star"></i>
+
+              <span class="ms-1">(24)</span>
+
+            </div>
+
+
+
+            <p class="card-text mb-3 flex-grow-1" style="color: RGB(137, 150, 129);">
+
+              <i class="fas fa-info-circle me-2"></i>
+
+              {{ product.description }}
+
+            </p>
+
+
+
+            <div class="d-flex justify-content-between align-items-center mt-auto">
+
+              <span class="fw-bold fs-4" style="color: RGB(187, 119, 84);">
+
+                <i class="fas fa-coins me-2"></i>
+
+                {{ product.priceAfterSale }} EGP
+
+              </span>
+
+              <div class="btn-group" role="group">
+
+                <button class="btn btn-sm me-1 d-flex align-items-center justify-content-center"
+
+                        style="background-color: RGB(187, 119, 84); color: white;"
+
+                        title="View"
+
+                        [routerLink]="['/product-details', product.productId]">
+
+                  <i class="fas fa-eye me-1"></i> View
+
+                </button>
+
+
+
+                <button class="btn btn-sm d-flex align-items-center justify-content-center"
+
+                        style="background-color: RGB(137, 150, 129); color: white;"
+
+                        title="Add to Cart"
+
+                        (click)="AddToCart(product.productId, product.stock)">
+
+                  <i class="fas fa-shopping-cart me-1"></i> Add
+
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div *ngIf="selectedCategoryProducts.length === 0 && selectedCategoryId != 0"
+
+       class="mt-5 text-center py-5">
+
+    <div class="py-4 px-3 rounded"
+
+         style="background-color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto;">
+
+      <i class="fas fa-box-open fa-3x mb-3" style="color: RGB(137, 150, 129);"></i>
+
+      <p class="fs-5 mb-0" style="color: RGB(137, 150, 129); font-family: 'Montserrat', sans-serif;">
+
+        No products available for this category yet. Check back soon!
+
+      </p>
+
+    </div>
+
+  </div>
+
+</div>

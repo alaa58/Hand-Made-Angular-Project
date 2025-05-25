@@ -1,0 +1,34 @@
+<!-- login.component.html -->
+<div class="registration-container">
+  <h2>login</h2>
+  
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+    <div class="form-group">
+      <label for="userName">Username</label>
+      <input type="text" id="userName" formControlName="userName" class="form-control">
+      <div *ngIf="loginForm.get('userName')?.invalid && loginForm.get('userName')?.touched" class="error-message">
+        Username is required and must be at least 3 characters.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" formControlName="password" class="form-control">
+      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error-message">
+        Password is required and must be at least 6 characters.
+      </div>
+    </div>
+
+   
+
+    <button type="submit" [disabled]="loginForm.invalid" class="submit-btn">Login</button>
+  </form>
+
+  <div *ngIf="loginSuccess" class="success-message">
+    Login successful! 
+  </div>
+<div *ngIf="errorMessage" class="alert-danger mt-3">
+  <strong>Error:</strong> {{ errorMessage }}
+</div>
+
+</div>
