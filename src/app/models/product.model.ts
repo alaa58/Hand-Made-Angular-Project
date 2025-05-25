@@ -6,6 +6,8 @@ export interface IProduct{
     description:string,
     image:string,
     salePercentage:number,
-    priceAfterSale:number
+    priceAfterSale:number,
+    hasSale:boolean,
+categoryId:number
 }
 

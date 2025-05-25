@@ -69,6 +69,7 @@ import { SellerdashboardComponent } from './components/sellerdashboard/sellerdas
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { AddproductComponent } from './components/addproduct/addproduct.component';
 import { ProductDetailsSellerComponent } from './components/product-detailsSeller/product-details.component';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
 
 export const routes: Routes = [
   {
@@ -99,7 +100,9 @@ export const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'product-details/:id', component: ProductDetailsSellerComponent },
       { path: 'dashboard', component: SellerdashboardComponent },
-      {path: 'addproduct', component: AddproductComponent}
+      {path: 'addproduct', component: AddproductComponent},
+      {path: 'editproduct/:id', component: EditProductComponent},
+
     ]
   },
 

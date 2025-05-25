@@ -16,6 +16,11 @@ export class ProductService {
   addProduct(formData: FormData) {
     throw new Error('Method not implemented.');
   }
+
+  EditProduct(id: number, updatedProduct: FormData): Observable<any> {
+  return this.http.put(`${environment.apiBaseUrl}/Product/${id}`, updatedProduct);
+}
+
 productList:ResponceGetAll<IProduct>={
    isSuccess: false,
     data: [],
